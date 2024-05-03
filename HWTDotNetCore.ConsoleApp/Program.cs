@@ -35,12 +35,16 @@ foreach(DataRow dr in dt.Rows)
     Console.WriteLine("------------------------------------");
 }*/
 
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+/*AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
 adoDotNetExample.Read();
 adoDotNetExample.Create("Title","Author","Content");
 adoDotNetExample.Update(11, "Test Title", "Test Author", "Test Content");
 adoDotNetExample.Delete(11);
 adoDotNetExample.Edit(11);
-adoDotNetExample.Edit(1);
+adoDotNetExample.Edit(1);*/
+
+DapperExample dapperExample = new DapperExample();
+dapperExample.Run();
+
 Console.ReadKey();
 
