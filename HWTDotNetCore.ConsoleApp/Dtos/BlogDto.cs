@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HWTDotNetCore.ConsoleApp;
+namespace HWTDotNetCore.ConsoleApp.Dtos;
 
 [Table("Tbl_Blog")] //mapping C# code "BlogDto" and Table in Sql server
 public class BlogDto

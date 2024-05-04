@@ -23,3 +23,10 @@ _________________________________
 EFCore
 - Code First 
 - Database First > ရှိပြီးသား database ကိုပြန်ယူသုံး
+
+efcore commandline database first 
+- https://www.entityframeworktutorial.net/efcore/create-model-for-existing-database-in-ef-core.aspx
+- install entity frameworkcore.tools
+- set as startup project
+- Tools>package manager console(Run Command)
+  Scaffold-DbContext "Server=RV-IT-LP-202;Database=DotNetTrainingBatch4;User Id=sa;Password=sa@12345;TrustServerCertificate = true;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context DotNetTrainingBatch4AppDbContext

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HWTDotNetCore.ConsoleApp
+namespace HWTDotNetCore.ConsoleApp.Services
 {
     internal class ConnectionStrings
     {

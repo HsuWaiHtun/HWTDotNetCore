@@ -6,8 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using HWTDotNetCore.ConsoleApp.Services;
+using HWTDotNetCore.ConsoleApp.Dtos;
 
-namespace HWTDotNetCore.ConsoleApp
+namespace HWTDotNetCore.ConsoleApp.DapperExamples
 {
     internal class DapperExample
     {
