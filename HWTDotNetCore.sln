@@ -3,10 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWTDotNetCore.ConsoleApp", "HWTDotNetCore.ConsoleApp\HWTDotNetCore.ConsoleApp.csproj", "{0DD35B1C-EBF8-4FD2-A32F-81160B0935BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HWTDotNetCore.ConsoleApp", "HWTDotNetCore.ConsoleApp\HWTDotNetCore.ConsoleApp.csproj", "{0DD35B1C-EBF8-4FD2-A32F-81160B0935BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{5C47A0A7-2C15-4B54-99EF-EEA9B7413A4D}"
 	ProjectSection(SolutionItems) = preProject
+		C:\Users\Bankuser\Desktop\DotNetTrainingBatch4.sql = C:\Users\Bankuser\Desktop\DotNetTrainingBatch4.sql
 		README.md = README.md
 	EndProjectSection
 EndProject
