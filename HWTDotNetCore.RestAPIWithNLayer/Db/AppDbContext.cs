@@ -1,12 +1,4 @@
-﻿using HWTDotNetCore.RestAPI.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HWTDotNetCore.RestAPI.Db;
+﻿namespace HWTDotNetCore.RestAPIWithNLayer.Db;
 
 internal class AppDbContext : DbContext
 {
