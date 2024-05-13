@@ -1,23 +1,27 @@
 ﻿using Dapper;
 using HWTDotNetCore.RestAPI.Models;
+using HWTDotNetCore.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection.Metadata;
 
 namespace HWTDotNetCore.RestAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogDapperController : ControllerBase
+    public class BlogDapper2Controller : ControllerBase
     {
+        private readonly DapperService _dapperService = new DapperService(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
         //Read
         [HttpGet]
         public IActionResult GetBlogs()
         {
             string query = "Select * from tbl_blog";
-            using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            List<BlogModel> lst = db.Query<BlogModel>(query).ToList();
+            /*using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            List<BlogModel> lst = db.Query<BlogModel>(query).ToList();*/
+            var lst = _dapperService.Query<BlogModel>(query);
             return Ok(lst);
         }
         [HttpGet("{id}")]
@@ -37,15 +41,16 @@ namespace HWTDotNetCore.RestAPI.Controllers
         public IActionResult CreateBlog(BlogModel blog)
         {
             string query = @"INSERT INTO[dbo].[Tbl_Blog]
-                           ([BlogTitle]
-                           ,[BlogAuthor]
-                           ,[BlogContent])
-                        VALUES
-                           (@BlogTitle,
-                            @BlogAuthor,
-                            @BlogContent)";
-            using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            int result = db.Execute(query, blog);
+           ([BlogTitle]
+           ,[BlogAuthor]
+           ,[BlogContent])
+        VALUES
+           (@BlogTitle,
+            @BlogAuthor,
+            @BlogContent)";
+            /*using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            int result = db.Execute(query, blog);*/
+            int result = _dapperService.Execute(query,blog);
             string message = result > 0 ? "Saving successful" : "Saving fail";
             return Ok(message);
         }
@@ -59,12 +64,13 @@ namespace HWTDotNetCore.RestAPI.Controllers
             }
             blog.BlogId = id;
             string query = @"UPDATE [dbo].[Tbl_Blog]
-                            SET [BlogTitle] = @BlogTitle
-                            ,[BlogAuthor] = @BlogAuthor
-                            ,[BlogContent] = @BlogContent
-                            WHERE BlogId = @BlogId";
-            using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            int result = db.Execute(query, blog);
+        SET [BlogTitle] = @BlogTitle
+        ,[BlogAuthor] = @BlogAuthor
+        ,[BlogContent] = @BlogContent
+        WHERE BlogId = @BlogId";
+            /*using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            int result = db.Execute(query, blog);*/
+            int result = _dapperService.Execute(query, blog);
             string message = result > 0 ? "Updating successful" : "Updating fail";
             return Ok(message);
         }
@@ -97,10 +103,11 @@ namespace HWTDotNetCore.RestAPI.Controllers
             conditions = conditions.Substring(0, conditions.Length - 2);
             blog.BlogId = id;
             string query = $@"UPDATE [dbo].[Tbl_Blog]
-                            SET {conditions}
-                            WHERE BlogId = @BlogId";
-            using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            int result = db.Execute(query, blog);
+            SET {conditions}
+            WHERE BlogId = @BlogId";
+            /* using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+             int result = db.Execute(query, blog);*/
+            int result = _dapperService.Execute(query, blog);
             string message = result > 0 ? "Updating successful" : "Updating fail";
             return Ok(message);
         }
@@ -113,17 +120,19 @@ namespace HWTDotNetCore.RestAPI.Controllers
                 return NotFound("No data found");
             }
             string query = @"DELETE FROM [dbo].[Tbl_Blog]
-                            WHERE BlogId = @BlogId";
-            using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            int result = db.Execute(query, new BlogModel() { BlogId = id });
+        WHERE BlogId = @BlogId";
+            /*using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            int result = db.Execute(query, new BlogModel() { BlogId = id });*/
+            int result = _dapperService.Execute(query, new BlogModel() { BlogId = id });
             string message = result > 0 ? "Deleting successful" : "Deleting fail";
             return Ok(message);
         }
         private BlogModel? FindById(int id)
         {
             string query = "Select * from tbl_blog where BlogId = @BlogId";
-            using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            var item = db.Query<BlogModel>(query, new BlogModel { BlogId = id }).FirstOrDefault();
+            /*using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            var item = db.Query<BlogModel>(query, new BlogModel { BlogId = id }).FirstOrDefault();*/
+            var item = _dapperService.QueryFirstOrDefault<BlogModel>(query,new BlogModel { BlogId = id});
             return item;
         }
     }
