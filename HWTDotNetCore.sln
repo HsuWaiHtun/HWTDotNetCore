@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HWTDotNetCore.Shared", "HWT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWTDotNetCore.RestAPIWithNLayer", "HWTDotNetCore.RestAPIWithNLayer\HWTDotNetCore.RestAPIWithNLayer.csproj", "{F7CFB5A8-9E45-4DEA-B2FE-CE37B4FB120C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWTDotNetCore.ConsoleAppHttpClient", "HWTDotNetCore.ConsoleAppHttpClient\HWTDotNetCore.ConsoleAppHttpClient.csproj", "{5A497029-EAE0-4CE6-9FF3-4D9E7AD66C8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F7CFB5A8-9E45-4DEA-B2FE-CE37B4FB120C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7CFB5A8-9E45-4DEA-B2FE-CE37B4FB120C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7CFB5A8-9E45-4DEA-B2FE-CE37B4FB120C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A497029-EAE0-4CE6-9FF3-4D9E7AD66C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A497029-EAE0-4CE6-9FF3-4D9E7AD66C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A497029-EAE0-4CE6-9FF3-4D9E7AD66C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A497029-EAE0-4CE6-9FF3-4D9E7AD66C8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
