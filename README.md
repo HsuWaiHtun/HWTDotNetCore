@@ -11,6 +11,10 @@ Packages
 - for using EFCore(Entity Framework)
   Microsoft.EntityFrameworkCore
   Microsoft.EntityFrameworkCore.SqlServer
+- Convert JSon to C# vice versa
+  Newtonsoft.Json
+- for using RestClient
+  Restsharp
 _________________________________
 ORM - object relational mapping(works between tables in database and languages that converts C# code to SQL query)
 Types of ORM
