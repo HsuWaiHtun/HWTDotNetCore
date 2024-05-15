@@ -11,6 +11,12 @@ foreach(var question in model.questions)
 }
 Console.ReadLine();
 //Json to C# , C# to Json - need package('newtonsoft.json')
+
+static string ToNum(string num)
+{
+    num = num.Replace("၃", "3");
+    return num;
+}
 public class MainDto
 {
     public Question[] questions { get; set; }

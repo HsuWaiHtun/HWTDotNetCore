@@ -6,8 +6,6 @@ using System.Collections.Generic;
 
 namespace HWTDotNetCore.RestAPI.Controllers;
 
-// domain url > https://localhost:3000 - to look port num Properties >> launchSettings.json
-// api/Blog > end point
 [Route("api/[controller]")]
 [ApiController]
 public class BlogController : ControllerBase
