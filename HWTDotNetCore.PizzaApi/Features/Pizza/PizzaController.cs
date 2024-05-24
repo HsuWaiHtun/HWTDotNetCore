@@ -29,6 +29,18 @@ namespace HWTDotNetCore.PizzaApi.Features.Pizza
             return Ok(lst);
         }
 
+        [HttpGet("ဿOrders/{invoiceNo}")]
+        public async Task<IActionResult> GetOrdersAsync(string invoiceNo)
+        {
+            var item = await _appDbContext.PizzasOrders.FirstOrDefaultAsync(x => x.PizzaOrderInvoiceNo == invoiceNo);
+            var lst = await _appDbContext.PizzasOrdersDetail.Where(x => x.PizzaOrderInvoiceNo == invoiceNo).ToListAsync();
+            return Ok(new
+            {
+                Order = item,
+                OrderDetail = lst 
+            });
+        }
+
         [HttpPost("Order")]
         public async Task<IActionResult> OrderAsync(OrderRequest orderRequest)
         {
