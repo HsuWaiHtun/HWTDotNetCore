@@ -19,4 +19,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HWTDotNetCore.Shared\HWTDotNetCore.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
