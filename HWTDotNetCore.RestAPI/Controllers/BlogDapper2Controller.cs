@@ -41,13 +41,13 @@ namespace HWTDotNetCore.RestAPI.Controllers
         public IActionResult CreateBlog(BlogModel blog)
         {
             string query = @"INSERT INTO[dbo].[Tbl_Blog]
-           ([BlogTitle]
-           ,[BlogAuthor]
-           ,[BlogContent])
-        VALUES
-           (@BlogTitle,
-            @BlogAuthor,
-            @BlogContent)";
+                           ([BlogTitle]
+                           ,[BlogAuthor]
+                           ,[BlogContent])
+                        VALUES
+                           (@BlogTitle,
+                            @BlogAuthor,
+                            @BlogContent)";
             /*using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, blog);*/
             int result = _dapperService.Execute(query,blog);
