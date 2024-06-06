@@ -37,6 +37,7 @@ namespace HWTDotNetCore.WinFormsApp
             Content = new Label();
             btnSave = new Button();
             btnCancel = new Button();
+            btnUpdate = new Button();
             SuspendLayout();
             // 
             // txtTitle
@@ -116,12 +117,28 @@ namespace HWTDotNetCore.WinFormsApp
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = Color.Teal;
+            btnUpdate.FlatAppearance.BorderSize = 0;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.ForeColor = SystemColors.Control;
+            btnUpdate.Location = new Point(237, 233);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(108, 42);
+            btnUpdate.TabIndex = 4;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Visible = false;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
             // FrmBlog
             // 
             AutoScaleDimensions = new SizeF(7F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(933, 525);
             Controls.Add(btnCancel);
+            Controls.Add(btnUpdate);
             Controls.Add(btnSave);
             Controls.Add(Content);
             Controls.Add(Author);
@@ -148,5 +165,6 @@ namespace HWTDotNetCore.WinFormsApp
         private Label Content;
         private Button btnSave;
         private Button btnCancel;
+        private Button btnUpdate;
     }
 }
