@@ -15,6 +15,8 @@ Packages
   Newtonsoft.Json
 - for using RestClient
   Restsharp
+- in vs code to run html
+  live server
 _________________________________
 ORM - object relational mapping(works between tables in database and languages that converts C# code to SQL query)
 Types of ORM
@@ -34,3 +36,9 @@ efcore commandline database first
 - set as startup project
 - Tools>package manager console(Run Command)
   Scaffold-DbContext "Server=RV-IT-LP-202;Database=DotNetTrainingBatch4;User Id=sa;Password=sa@12345;TrustServerCertificate = true;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context DotNetTrainingBatch4AppDbContext
+
+  ___________________________________________________________________________________________________
+
+  https port num - 443
+  http port num - 80
+  mssql port num - 1433
