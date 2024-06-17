@@ -145,11 +145,19 @@ function uuidv4() {
 }
 
 function successMessage(message){
-    alert(message);
+    Swal.fire({
+        title: "Success!",
+        text: message,
+        icon: "success"
+    });
 }
 
 function errorMessage(message){
-    alert(message);
+    Swal.fire({
+        title: "Success!",
+        text: message,
+        icon: "success"
+    });
 }
 
 function clearControls(){

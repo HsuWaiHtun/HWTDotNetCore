@@ -37,8 +37,33 @@ efcore commandline database first
 - Tools>package manager console(Run Command)
   Scaffold-DbContext "Server=RV-IT-LP-202;Database=DotNetTrainingBatch4;User Id=sa;Password=sa@12345;TrustServerCertificate = true;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context DotNetTrainingBatch4AppDbContext
 
-  ___________________________________________________________________________________________________
+___________________________________________________________________________________________________
 
   https port num - 443
   http port num - 80
   mssql port num - 1433
+
+____________________________________________________________________________________________________
+  
+jQuery Plugins
+
+- SweetAlert
+ https://sweetalert2.github.io/
+- Notiflix (Notify, Report, Confirm, Loading, Block)
+ https://www.jsdelivr.com/package/npm/notiflix
+ https://notiflix.github.io/
+- DataTable
+ https://datatables.net/examples/index
+ https://datatables.net/download/
+- Date Picker
+ https://github.com/fengyuanchen/datepicker/blob/master/README.md
+ https://github.com/fengyuanchen/datepicker/releases/tag/v1.0.10
+- Ladda Button
+ https://cdnjs.com/libraries/ladda-bootstrap
+ https://github.com/msurguy/ladda-bootstrap
+- iCheckbox (Radio, CheckBox)
+https://cdnjs.com/libraries/icheck-bootstrap
+https://github.com/bantikyan/icheck-bootstrap
+https://penguin-arts.com/how-to-check-if-a-checkbox-is-checked-using-icheck-library/
+- Toast
+https://github.com/apvarun/toastify-js/blob/master/README.md
