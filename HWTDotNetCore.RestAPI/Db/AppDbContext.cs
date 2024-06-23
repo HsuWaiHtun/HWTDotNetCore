@@ -3,11 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HWTDotNetCore.RestAPI.Db;
 
-internal class AppDbContext : DbContext
+public class AppDbContext : DbContext
 {
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public AppDbContext(DbContextOptions options) : base(options)
     {
-        optionsBuilder.UseSqlServer(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);//use sql server
-    }//what connection do you use
+    }
+
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    optionsBuilder.UseSqlServer(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);//use sql server
+    //}//what connection do you use
     public DbSet<BlogModel> Blogs { get; set; } // ဘယ်tableကိုသုံးမှာလဲကြော်ငြာပေးရ(connect C# and database)
 }

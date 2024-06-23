@@ -17,7 +17,14 @@ namespace HWTDotNetCore.RestAPI.Controllers
     [ApiController]
     public class BlogAdoDotNet2Controller : ControllerBase
     {
-        private readonly AdoDotNetService _doDotNetService = new AdoDotNetService(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        //private readonly AdoDotNetService _adoDotNetService = new AdoDotNetService(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        private readonly AdoDotNetService _adoDotNetService;
+
+        public BlogAdoDotNet2Controller(AdoDotNetService adoDotNetService)
+        {
+            _adoDotNetService = adoDotNetService;
+        }
+
         [HttpGet]
         public IActionResult GetBlogs()
         {
@@ -56,7 +63,7 @@ namespace HWTDotNetCore.RestAPI.Controllers
                 BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
                 BlogContent = Convert.ToString(dr["BlogContent"]),
             }).ToList();*/
-            var lst = _doDotNetService.Query<BlogModel>(query);
+            var lst = _adoDotNetService.Query<BlogModel>(query);
             return Ok(lst);
         }
         [HttpGet("{id}")]
@@ -66,7 +73,7 @@ namespace HWTDotNetCore.RestAPI.Controllers
             /*not include params
             AdoDotNetParameter[] parameters = new AdoDotNetParameter[1];
             parameters[0] = new AdoDotNetParameter("@BlogId", id);
-            var lst = _doDotNetService.Query<BlogModel>(query, parameters);*/
+            var lst = _adoDotNetService.Query<BlogModel>(query, parameters);*/
             /*SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
             //SqlConnection connection = new SqlConnection(Data Source = RV - IT - LP - 202; Initial Catalog = DotNetTrainingBatch4; User ID = sa; Password = sa@12345);
             connection.Open();
@@ -90,7 +97,7 @@ namespace HWTDotNetCore.RestAPI.Controllers
                 BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
                 BlogContent = Convert.ToString(dr["BlogContent"]),
             };*/
-            var item = _doDotNetService.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogId", id));
+            var item = _adoDotNetService.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogId", id));
             if (item is null)
             {
                 return NotFound("No data found");
@@ -116,7 +123,7 @@ namespace HWTDotNetCore.RestAPI.Controllers
             cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
             int result = cmd.ExecuteNonQuery();
             connection.Close();*/
-            int result = _doDotNetService.Execute(query, new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
+            int result = _adoDotNetService.Execute(query, new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
                                                          new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
                                                          new AdoDotNetParameter("@BlogContent", blog.BlogContent));
             string message = result > 0 ? "Saving successful" : "Saving fail";
@@ -140,7 +147,7 @@ namespace HWTDotNetCore.RestAPI.Controllers
             cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
             int result = cmd.ExecuteNonQuery();
             connection.Close();*/
-            int result = _doDotNetService.Execute(query,
+            int result = _adoDotNetService.Execute(query,
                new AdoDotNetParameter("@BlogId", id),
                new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
                new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
@@ -152,7 +159,7 @@ namespace HWTDotNetCore.RestAPI.Controllers
         public IActionResult PatchBlog(int id, BlogModel blog)
         {
             string query = "select * from tbl_blog where BlogId = @BlogId";
-            var item = _doDotNetService.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogId", id));
+            var item = _adoDotNetService.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogId", id));
             if (item is null)
             {
                 return NotFound("No data found");
@@ -175,7 +182,7 @@ namespace HWTDotNetCore.RestAPI.Controllers
             {
                 blog.BlogContent = item.BlogContent;
             }
-            int result = _doDotNetService.Execute(query,
+            int result = _adoDotNetService.Execute(query,
                new AdoDotNetParameter("@BlogId", id),
                new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
                new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
@@ -191,7 +198,7 @@ namespace HWTDotNetCore.RestAPI.Controllers
             connection.Open();
             string query = @"DELETE FROM [dbo].[Tbl_Blog]
                             WHERE BlogId = @BlogId";
-            int result = _doDotNetService.Execute(query, new AdoDotNetParameter("@BlogId", id));
+            int result = _adoDotNetService.Execute(query, new AdoDotNetParameter("@BlogId", id));
             string message = result > 0 ? "Deleting successful" : "Deleting fail";
             return Ok(message);
         }
@@ -199,7 +206,7 @@ namespace HWTDotNetCore.RestAPI.Controllers
         private bool FindById(int id)
         {
             string query = "Select * from tbl_blog where BlogId = @BlogId";
-            int result = _doDotNetService.Execute(query, new AdoDotNetParameter("@BlogId", id));
+            int result = _adoDotNetService.Execute(query, new AdoDotNetParameter("@BlogId", id));
             if (query is null)
             {
                 return false;

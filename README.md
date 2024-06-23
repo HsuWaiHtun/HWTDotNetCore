@@ -67,3 +67,9 @@ https://github.com/bantikyan/icheck-bootstrap
 https://penguin-arts.com/how-to-check-if-a-checkbox-is-checked-using-icheck-library/
 - Toast
 https://github.com/apvarun/toastify-js/blob/master/README.md
+
+_________________________________________________________________
+Dependency Injection Service Lifetime
+- Singleton => Incoming requests shared use instance when created
+- Scoped => one request create one instance (use regular step by step)
+- Transient => every time create new instance (use incoming parallel)

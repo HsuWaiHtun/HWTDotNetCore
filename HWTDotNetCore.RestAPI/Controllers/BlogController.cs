@@ -10,11 +10,18 @@ namespace HWTDotNetCore.RestAPI.Controllers;
 [ApiController]
 public class BlogController : ControllerBase
 {
+    //private readonly AppDbContext _context;
+    //public BlogController()
+    //{
+    //    _context = new AppDbContext();
+    //}//constructor
+
     private readonly AppDbContext _context;
-    public BlogController()
+
+    public BlogController(AppDbContext context)
     {
-        _context = new AppDbContext();
-    }//constructor
+        _context = context;
+    }
 
     [HttpGet]
     public IActionResult Read()
