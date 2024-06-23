@@ -8,34 +8,57 @@ function uuidv4() {
 }
 
 function successMessage(message) {
-  Swal.fire({
-    title: "Success!",
-    text: message,
-    icon: "success",
-  });
+  // alert("message");
+
+  //   Swal.fire({
+  //     title: "Success!",
+  //     text: message,
+  //     icon: "success",
+  //   });
+
+  Notiflix.Report.success("Success!", message, "Ok");
 }
 
 function errorMessage(message) {
-  Swal.fire({
-    title: "Error!",
-    text: message,
-    icon: "error",
-  });
+  // alert("message");
+
+  //   Swal.fire({
+  //     title: "Error!",
+  //     text: message,
+  //     icon: "error",
+  //   });
+
+  Notiflix.Report.failure("Error!", message, "Ok");
 }
 
 function confirmMessage(message) {
+  //   let confirmMessageResult = new Promise(function (success, error) {
+  //     Swal.fire({
+  //       title: "Confirm",
+  //       text: message,
+  //       icon: "warning",
+  //       showCancelButton: true,
+  //       confirmButtonText: "Yes",
+  //     }).then((result) => {
+  //       if (result.isConfirmed) {
+  //         success();
+  //       } else error();
+  //     });
+  //   });
+  //   return confirmMessageResult;
   let confirmMessageResult = new Promise(function (success, error) {
-    Swal.fire({
-      title: "Confirm",
-      text: message,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Yes",
-    }).then((result) => {
-      if (result.isConfirmed) {
+    Notiflix.Confirm.show(
+      "Confirm",
+      message,
+      "Yes",
+      "No",
+      function okCb() {
         success();
-      } else error();
-    });
+      },
+      function cancelCb() {
+        error();
+      }
+    );
   });
   return confirmMessageResult;
 }

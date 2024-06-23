@@ -11,14 +11,15 @@
 </head>
 
 <body>
-    <div class="card" id = "cardId" style="width: 18rem;">
-        
+    <div class="card" id="cardId" style="width: 18rem;">
+
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-      </div>
+    </div>
     <button type="button" class="btn btn-success" id="btnSave">Save</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -33,16 +34,16 @@
         //     '"Do not try to become a person of success but try to become a person of value." <br/><br/>- Albert Einstein',
         //     'Okay',
         // );
-        $('#btnSave').click(function(){
+        $('#btnSave').click(function () {
             Notiflix.Block.standard('#cardId');
             setTimeout(() => {
                 Notiflix.Block.remove('#cardId');
-            },1000);
+            }, 1000);
             // Notiflix.Loading.standard();
             // setTimeout(() => {
-            //     Notiflix.Loading.remove();
+            // Notiflix.Loading.remove();
             // }, 1000);
-            
+
         })
     </script>
 </body>
