@@ -7,9 +7,13 @@ using HWTDotNetCore.ConsoleApp.Dtos;
 
 namespace HWTDotNetCore.ConsoleApp.EFCoreExamples
 {
-    internal class EFCoreExample
+    public class EFCoreExample
     {
-        private readonly AppDbContext db = new AppDbContext();
+        // private readonly AppDbContext db = new AppDbContext();
+        private readonly AppDbContext db;
+        public EFCoreExample(AppDbContext db) {
+            this.db = db; 
+        }
         public void Run()
         {
             //Read();

@@ -10,13 +10,21 @@ namespace HWTDotNetCore.ConsoleApp.AdoDotNetExamples
 {
     public class AdoDotNetExample
     {
-        private readonly SqlConnectionStringBuilder _stringBuilder = new SqlConnectionStringBuilder()
+        //    private readonly SqlConnectionStringBuilder _stringBuilder = new SqlConnectionStringBuilder()
+        //    {
+        //        DataSource = "RV-IT-LP-202",
+        //        InitialCatalog = "DotNetTrainingBatch4",
+        //        UserID = "sa",
+        //        Password = "sa@12345"
+        //    };
+
+        private readonly SqlConnectionStringBuilder _stringBuilder;
+
+        public AdoDotNetExample(SqlConnectionStringBuilder stringBuilder)
         {
-            DataSource = "RV-IT-LP-202",
-            InitialCatalog = "DotNetTrainingBatch4",
-            UserID = "sa",
-            Password = "sa@12345"
-        };
+            _stringBuilder = stringBuilder;
+        }
+
         public void Read()
         {
 
